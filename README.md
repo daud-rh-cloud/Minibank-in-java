@@ -15,10 +15,9 @@ what makes inheritance and polymorphism meaningful in this project.
 3. Deposit
 4. Withdraw
 5. Transfer
-6. Search accounts by owner
-7. Show transaction history
-8. Run month-end          (admin only)
-9. Bank statistics
+6. Show transaction history
+7. Run month-end          (admin only)
+8. Bank statistics
 0. Exit
 ```
 
