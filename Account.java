@@ -25,6 +25,9 @@ public abstract class Account {
 
     void withdrawl(double ammount){}
 
+    void applyMonthEnd(){}; 
+
+
 
     void describe (){
         System.out.println("-------------- \nAccount type :-" +getClass().getSimpleName() + "\nOwnername:- " +ownername + "\nBalance:- $" +balance);

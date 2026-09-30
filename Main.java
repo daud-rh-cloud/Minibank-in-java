@@ -4,6 +4,8 @@ import java.util.Scanner;
 public class Main{ 
 public static void main(String [] args){
 
+String Admin_PASSSWORD = "12345"; 
+
 
 Scanner scanner  = new Scanner (System.in); 
 
@@ -26,13 +28,13 @@ int option = -1;
 while (option !=  0 ){
 
 System.out.println(" --------------------------------  ");
-System.out.println("1. Open account \n2. Close account \n3. Deposit \n4. Witchoosehdraw \n5. Transfer  \n6. Show transaction history  \n7. Bank statistics\n0. Exit \nChoose a Nummer:-  ");
+System.out.println("1. Open account \n2. Close account \n3. Deposit \n4. Witchoosehdraw \n5. Transfer  \n6. Show transaction history \n7. Run Monthly End  \n8. Bank statistics\n9. Show Balance  \n0.EXIT \nChoose a Nummer:-  ");
 
 try {option = scanner.nextInt(); 
     scanner.nextLine();
 }
 catch (Exception e){
-    System.out.println("Enter a Valid Nummer");
+    System.out.println("Enter a Valid NAME");
     break; 
 }   
 
@@ -41,7 +43,7 @@ catch (Exception e){
 
 if (option == 1 ){                                                                                      
 
-    System.out.println("--------Type Account name You want to Open---------");
+    System.out.println("--------TYPE Account name You want to Open (Copy,Paste)---------");
 
      for (Account accout : accounts ){
         System.out.println(accout.getClass().getSimpleName()); 
@@ -72,9 +74,7 @@ if (option == 1 ){
             System.out.println(" -->> You have to open a Account first! ");
 //Logging 
       transaction_history.add("Failed Attempt to Deposit! "); 
-            break; 
          }
-
 
          else {
         System.out.println("How Much Do you want to Deposit?");
@@ -86,9 +86,14 @@ if (option == 1 ){
 }
 
     if (option == 4 ){
+         if (chossenAccount == null){
+            System.out.println(" -->> You have to open a Account first! ");}
+        else{
         System.out.println("How Much Do you want to Withrawl?");
         double Withrawl_ammount = scanner.nextDouble(); 
-        chossenAccount.withdrawl(Withrawl_ammount);
+        chossenAccount.withdrawl(Withrawl_ammount);}
+
+
 //Logging 
       transaction_history.add("One Succesfull Withrawl has been performed! "); 
     }
@@ -119,20 +124,65 @@ if (option == 1 ){
 
 
 
-    if (option == 6 ); 
+    if (option == 6 ){
+    System.out.println("---------transaction history-------------");
+       for (String log : transaction_history){
+        System.out.println(log);
+       }
+
+    }
+    
+    
+    // APPLYING MONTHLY END -- PAYING INTEREST AND CHARGING FEES ---- (ADMIN ONLY CAN RUN !!!! )
+    if (option == 7){
+        System.out.println("Enter the Admin-PASSWORD :- ");
+        String input = scanner.nextLine();
+        if(!input.equals(Admin_PASSSWORD)){
+            System.out.println("Permissiion Denied! Cheak for Corrrect Password.");
+        }
+        else {
+            for (int i = 0 ; i < accounts.size();i++){
+                accounts.get(i).applyMonthEnd();
+            }
+        }
+    }
 
 
+    if (option == 8 ){
+        int TotalAccount = 0; 
+        double TotalBankBalance = 0 ; 
+        String AccountWithHighestBalance = null ; 
+        double counter = 0 ;
+
+        for (Account account : accounts ){
+            TotalAccount += 1; 
+            TotalBankBalance += account.balance; 
+            if (counter < account.balance){
+                counter = account.balance; 
+                AccountWithHighestBalance = account.getClass().getSimpleName(); 
+            }
+             
+        }
+        System.out.println("TotalAccount = "+TotalAccount + "\nTotalBankBalance:- $" +TotalBankBalance + "\nAccountWithHighestBalance:- "+AccountWithHighestBalance );
+    }
 
 
+    if (option == 9 ){
+         if (chossenAccount == null){
+            System.out.println(" -->> You have to open a Account first! ");}
+        else{
+            System.out.println("$" + chossenAccount.balance);
+         }
+     }
 
 
+    if(option == 0 ){
+    break;
+    }
 
 
-
-
-
-    } /// whille close 
-} // maIN CLOSE 
+    } /// while loop close 
+} // MAIN CLOSE 
 
 
 

@@ -10,7 +10,7 @@ Cheakingaccount (String ownername,double balance){
 
 @Override 
       void withdrawl(double ammount){
-        if (ammount > -1100){
+        if (balance - ammount < -1100){
             System.out.println("Not sufficent Balance ");
         }
         else { 
@@ -21,11 +21,22 @@ Cheakingaccount (String ownername,double balance){
 
 
     double monthlyFee(){
-        monthlyFee  = 0.01 * balance; 
+        if (balance < 2500  ){
+            monthlyFee = 25 ; 
+        }
+        else{
+        monthlyFee  = 0.01 * balance;
+         }
+
         return monthlyFee; 
     }
 
-
+    @Override 
+    void applyMonthEnd(){
+        //  Carging the Monthtly free 
+        balance -= monthlyFee(); 
+         System.out.println("--- MonthlyFee " + monthlyFee() + " has been chargeed to the "  +getClass().getSimpleName());
+    }
 
 
 

@@ -26,6 +26,14 @@ public class Studentaccount extends Account implements interest{
  }
 
 
+ @Override
+ void applyMonthEnd() {
+     // pay the interest to the Castomer 
+     balance += calculate_interest(); 
+        System.out.println("---Interset of " + calculate_interest() + " has been Paid in " +getClass().getSimpleName());
+ }
+
+
 
 
 @Override

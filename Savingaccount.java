@@ -1,7 +1,7 @@
 public class Savingaccount extends Account implements interest{
     
 double maxwithrawl = 0 ; 
-
+double YearlyRate = 0.04; 
 Savingaccount (String ownername,double balance){
     super(ownername,balance);
 }
@@ -25,9 +25,24 @@ Savingaccount (String ownername,double balance){
 
       @Override
       public double calculate_interest()  {
-       double interest =  balance * (0.4 / 12); 
+       double interest =  balance * (YearlyRate / 12); 
           return interest;
       }
+
+
+      @Override
+      void applyMonthEnd(){
+          //reseting monthly-Withrawl-Limit   
+          maxwithrawl = 0; 
+        //Calculate and Pay the Intereset to the Castomer
+            balance += calculate_interest(); 
+            System.out.println("---Interset of " + calculate_interest() + " has been Paid in " +getClass().getSimpleName());
+      }
+    
+      
+
+
+
 
 
      @Override
