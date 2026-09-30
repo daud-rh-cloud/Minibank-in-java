@@ -157,7 +157,7 @@ if (option == 1 ){
     System.out.println("How Much Do you want to TRASFER ?");
     try {
     double ammount_to_Trassfer = scanner.nextDouble(); 
-    
+
 
      //// MAKE THE TRASFER
     Trasfer_method(accounts, chossenAccount, chossenAccount2, ammount_to_Trassfer);}
@@ -217,7 +217,7 @@ if (option == 1 ){
         double TotalBankBalance = 0 ; 
         String AccountWithHighestBalance = null ; 
         double counter = 0 ;
-
+        double totalInterest = 0 ; 
         for (Account account : accounts ){
             TotalAccount += 1; 
             TotalBankBalance += account.balance; 
@@ -225,9 +225,13 @@ if (option == 1 ){
                 counter = account.balance; 
                 AccountWithHighestBalance = account.getClass().getSimpleName(); 
             }
+            if (account instanceof interest){
+                interest i = (interest) account;
+               totalInterest =  i.calculate_interest(); 
+            }
              
         }
-        System.out.println("TotalAccount = "+TotalAccount + "\nTotalBankBalance:- $" +TotalBankBalance + "\nAccountWithHighestBalance:- "+AccountWithHighestBalance );
+        System.out.println("TotalAccount = "+TotalAccount + "\nTotalBankBalance:- $" +TotalBankBalance + "\nAccountWithHighestBalance:- "+AccountWithHighestBalance + "\nMonthly Interest:- $" +totalInterest);
     }
 
 
