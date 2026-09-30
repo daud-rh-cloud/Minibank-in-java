@@ -78,20 +78,5 @@ Interest is calculated monthly as `balance × annualRate / 12` and added to the
 balance at month-end, so it compounds. Real banks usually calculate interest daily
 and pay it out yearly – this project uses a simplified monthly model.
 
----
 
-## How to run
 
-Requires Java 17 or newer.
-
-```bash
-javac *.java
-java Main
-```
-
----
-
-## Development
-
-The project is developed incrementally with Git, committing after each working
-step with descriptive English commit messages.
