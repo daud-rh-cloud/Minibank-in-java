@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main{ 
@@ -33,9 +34,10 @@ System.out.println("1. Open account \n2. Close account \n3. Deposit \n4. Witchoo
 try {option = scanner.nextInt(); 
     scanner.nextLine();
 }
-catch (Exception e){
-    System.out.println("Enter a Valid NAME");
-    break; 
+catch (InputMismatchException e){
+    System.out.println("Enter a Valid Nummer");
+    scanner.nextLine(); 
+    continue; 
 }   
 
 
