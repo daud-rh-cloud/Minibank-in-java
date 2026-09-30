@@ -63,6 +63,11 @@ if (option == 1 ){
     }
 
 
+
+
+
+
+
     if (option == 2 ){
         System.out.println("-----> Account closed !! ");
         chossenAccount = null; 
@@ -70,6 +75,12 @@ if (option == 1 ){
     transaction_history.add("One account has been Closed!"); 
 
     }
+
+
+
+
+
+
 
     if (option == 3){
          if (chossenAccount == null){
@@ -80,25 +91,50 @@ if (option == 1 ){
 
          else {
         System.out.println("How Much Do you want to Deposit?");
+        try {
         double deposit_ammount = scanner.nextDouble(); 
-        chossenAccount.deposit(deposit_ammount);
+        chossenAccount.deposit(deposit_ammount);}
+
+        catch (InputMismatchException e)
+         {System.out.println("--->> !!!! Provide A  Valid nummer Ammout!!!! ");
+              scanner.nextLine();  
+         }
+
 //Logging 
       transaction_history.add("One Succesfull Deposit has been performed! "); 
     }
 }
 
+
+
+
+
+
+
     if (option == 4 ){
          if (chossenAccount == null){
-            System.out.println(" -->> You have to open a Account first! ");}
+            System.out.println(" -->> You have to open a Account first! ");
+        }
         else{
         System.out.println("How Much Do you want to Withrawl?");
+        try {
         double Withrawl_ammount = scanner.nextDouble(); 
-        chossenAccount.withdrawl(Withrawl_ammount);}
-
+        chossenAccount.withdrawl(Withrawl_ammount);
+        }
+        catch (InputMismatchException e ){
+            System.out.println("--->> !!! Provide A  Valid nummer Ammout!!!!");
+        }
+    }
+    
 
 //Logging 
       transaction_history.add("One Succesfull Withrawl has been performed! "); 
     }
+
+
+
+
+
 
 
     if (option == 5 ){
@@ -113,16 +149,26 @@ if (option == 1 ){
 
     //// SELECT AMMOAUT 
     System.out.println("How Much Do you want to TRASFER ?");
+    try {
     double ammount_to_Trassfer = scanner.nextDouble(); 
 
-
-
      //// MAKE THE TRASFER
-    Trasfer_method(accounts, chossenAccount, chossenAccount2, ammount_to_Trassfer);
+    Trasfer_method(accounts, chossenAccount, chossenAccount2, ammount_to_Trassfer);}
+
+    catch (InputMismatchException e ){
+        System.out.println("---->>> ERROR:- Unvalid ammout!!!!");
+        scanner.nextLine(); 
+    }
 
 //Logging 
       transaction_history.add("One Trasfer has been performed! "); 
     }
+
+
+
+
+
+
 
 
 
@@ -133,6 +179,11 @@ if (option == 1 ){
        }
 
     }
+
+
+
+
+
     
     
     // APPLYING MONTHLY END -- PAYING INTEREST AND CHARGING FEES ---- (ADMIN ONLY CAN RUN !!!! )
@@ -148,6 +199,10 @@ if (option == 1 ){
             }
         }
     }
+
+
+
+
 
 
     if (option == 8 ){
@@ -169,6 +224,9 @@ if (option == 1 ){
     }
 
 
+
+
+
     if (option == 9 ){
          if (chossenAccount == null){
             System.out.println(" -->> You have to open a Account first! ");}
@@ -185,6 +243,8 @@ if (option == 1 ){
 
     } /// while loop close 
 } // MAIN CLOSE 
+
+
 
 
 
