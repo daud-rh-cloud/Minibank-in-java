@@ -13,6 +13,11 @@ public class Studentaccount extends Account implements interest{
         if (ammount > balance){
             System.out.println("Not sufficent Balance ");
         }
+        else if (ammount < 0 ) {
+            {
+              System.out.println("---->> ERROR: Nummer Must be positiv");
+            }
+        }
         else { 
             balance -= ammount; 
              System.out.println("Withrawl Has been Successsfull!");

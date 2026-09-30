@@ -13,12 +13,17 @@ Cheakingaccount (String ownername,double balance){
         if (balance - ammount < -1100){
             System.out.println("Not sufficent Balance ");
         }
+        else if (ammount < 0 ) {
+            {
+              System.out.println("---->> ERROR: Nummer Must be positiv");
+            }
+        }
         else { 
             balance -= ammount; 
              System.out.println("Withrawl Has been Successsfull!");
          }
-      }
-
+        }
+    
 
     double monthlyFee(){
         if (balance < 2500  ){
