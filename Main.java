@@ -138,8 +138,13 @@ if (option == 1 ){
 
 
     if (option == 5 ){
-        System.out.println("--------Type Account name You want to TRASFER to ---------"); 
-        
+         if (chossenAccount == null){
+            System.out.println(" -->> You have to open a Account first! ");
+        }
+        else{
+             System.out.println("--------Type Account name You want to TRASFER to ---------"); 
+
+
      /// SELECT Account  
     for (Account accout : accounts ){
     System.out.println(accout.getClass().getSimpleName()); 
@@ -147,10 +152,12 @@ if (option == 1 ){
         ChossenAccountName = scanner.nextLine();
         Account chossenAccount2 = choose_account_method(accounts,ChossenAccountName ); 
 
+
     //// SELECT AMMOAUT 
     System.out.println("How Much Do you want to TRASFER ?");
     try {
     double ammount_to_Trassfer = scanner.nextDouble(); 
+    
 
      //// MAKE THE TRASFER
     Trasfer_method(accounts, chossenAccount, chossenAccount2, ammount_to_Trassfer);}
@@ -164,7 +171,7 @@ if (option == 1 ){
       transaction_history.add("One Trasfer has been performed! "); 
     }
 
-
+    }
 
 
 

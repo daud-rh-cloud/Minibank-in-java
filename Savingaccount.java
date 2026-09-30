@@ -13,10 +13,10 @@ Savingaccount (String ownername,double balance){
         if (ammount > balance){
             System.out.println("Not sufficent Balance ");
         }
-        else if {
-            (ammount < 0 ){
-                System.out.println("---->> ERROR: Nummer Must be positiv");
-            }
+        else if (ammount < 0 ) {
+            
+              System.out.println("---->> ERROR: Nummer Must be positiv");
+            
         }
         else if (maxwithrawl == 3 ){
             System.out.println("Monthly Withrawl Limit has been Exceeded");

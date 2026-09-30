@@ -14,9 +14,9 @@ Cheakingaccount (String ownername,double balance){
             System.out.println("Not sufficent Balance ");
         }
         else if (ammount < 0 ) {
-            {
+            
               System.out.println("---->> ERROR: Nummer Must be positiv");
-            }
+            
         }
         else { 
             balance -= ammount; 
