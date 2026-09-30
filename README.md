@@ -1,8 +1,6 @@
 # MiniBank – Console Banking System
 
-A Java console application that simulates a small bank, built as a course project
-during my Higher Vocational Education (YH) studies in Sweden.
-
+A Java console application that simulates a small bank
 Users can open accounts, deposit and withdraw money, and run a month-end process
 that applies interest and fees. Each account type follows its own rules, which is
 what makes inheritance and polymorphism meaningful in this project.
