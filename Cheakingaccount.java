@@ -2,7 +2,7 @@ public class Cheakingaccount extends Account{
     
     double monthlyFee; 
 
-Cheakingaccount (String ownername,double balance){
+Cheakingaccount (String ownername,double balance){ 
     super(ownername,balance);
 }
 
